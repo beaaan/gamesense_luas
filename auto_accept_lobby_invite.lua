@@ -1,5 +1,3 @@
--- credits: sapphyrus (https://www.unknowncheats.me/forum/2794104-post11.html)
-
 local js = panorama.open()
 local PartyBrowserAPI = js.PartyBrowserAPI
 
@@ -58,7 +56,7 @@ local function joinByLeaderXuid(xuid)
 end
 
 client.set_event_callback("paint_ui", function()
-    if not entity.get_local_player() then
+    if not entity.get_local_player() and not entity.get_game_rules() then
         for _,v in next, xuids do
             joinByLeaderXuid(v)
         end
