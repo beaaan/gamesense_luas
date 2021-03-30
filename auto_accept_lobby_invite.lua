@@ -1,5 +1,5 @@
 local js = panorama.open()
-local PartyBrowserAPI = js.PartyBrowserAPI
+local PartyBrowserAPI, FriendsListAPI = js.PartyBrowserAPI, js.FriendsListAPI
 
 local xuids = database.read("xuids") or {}
 
