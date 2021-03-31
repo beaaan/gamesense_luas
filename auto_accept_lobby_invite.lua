@@ -35,10 +35,15 @@ client.set_event_callback("console_input", function(cmd)
     elseif cmd:sub(1, 11) == "remove_xuid" then
         if cmd:len() > 12 then
             local xuid = cmd:sub(13, -1)
-            for _,v in next, xuids do
-                if v == xuid then
-                    table.remove(xuids, _)
-                    database.write("xuids", xuids)
+            if xuid == "all" then
+                xuids = {}
+                database.write("xuids", xuids)
+            else
+                for _,v in next, xuids do
+                    if v == xuid then
+                        table.remove(xuids, _)
+                        database.write("xuids", xuids)
+                    end
                 end
             end
         end
