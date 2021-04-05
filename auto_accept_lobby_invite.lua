@@ -47,6 +47,7 @@ client.set_event_callback("console_input", function(cmd)
                 end
             end
         end
+	return true
     end
 end)
 
